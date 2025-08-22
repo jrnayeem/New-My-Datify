@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Falling Hearts Animation */
+    .heart {
+      position: fixed;
+      top: -50px;
+      color: #ff4d6d;
+      font-size: 24px;
+      animation: fall linear forwards;
+      z-index: 50;
+      opacity: 0.9;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.7;
+      }
+    }
+
+    /* Background Gradient */
+    @keyframes gradient-x {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .animate-gradient-x {
+      background-size: 200% 200%;
+      animation: gradient-x 15s ease infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4 
+             bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 animate-gradient-x relative overflow-hidden">
+
+  <!-- Falling Hearts Container -->
+  <div id="hearts-container"></div>
+
+  <!-- Card -->
+  <div class="w-full max-w-sm text-center bg-white shadow-2xl rounded-2xl p-6 relative z-10
+              transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+
+    <!-- Profile Image -->
+    <img src="img/300.jpg" alt="Profile Picture" 
+         class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-white animate-bounce">
+
+    <!-- Title -->
+    <h1 class="mt-4 text-2xl font-bold text-gray-800">Private Profile</h1>
+    <p class="mt-2 text-gray-600">Click below to view my profile.</p>
+
+    <!-- Button -->
+    <button onclick="openLink()" 
+            class="mt-6 w-full py-3 px-4 bg-pink-600 text-white font-medium rounded-xl 
+                   shadow-lg hover:shadow-pink-500/50 hover:scale-105 
+                   transition duration-300 ease-in-out">
+      View My Profile
+    </button>
+  </div>
+
+  <script>
+    // Normal redirect
+    function openLink() {
+      window.location.href = "https://onlyhotdates.com/rq9pz3BD?aid=pkkfxdhdk&kid=hagbhaxzazk&sub1=meet";
+    }
+
+    // Create falling hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 16) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.getElementById("hearts-container").appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 500); // Heart every 0.5s
+  </script>
+</body>
+</html>
